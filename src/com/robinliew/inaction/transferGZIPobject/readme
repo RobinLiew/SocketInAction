@@ -1,0 +1,2 @@
+transfer包中用Java Socket来传输对象，但是在有些情况下比如网络环境不好或者对象比较大的情况下需要把数据对象进行压缩然后在传输，
+此时就需要压缩这些对象流，此时就可以GZIPInputStream和GZIPOutputStream来处理一下socket的InputStream和OutputStream。

@@ -1,0 +1,14 @@
+安装JDK之后便可以找到keytool.exe工具 
+下面就需要产生keystore文件了，运行下面的命令
+
+keytool -genkey -alias mysocket -keyalg RSA -keystore mysocket.jks 
+
+在提示输入项中，密码项自己给定，其它都不改直接回车，这里我使用的密码是“mysocket”。
+
+运行Server
+
+java -Djavax.net.ssl.keyStore=mysocket.jks -Djavax.net.ssl.keyStorePassword=mysocket com.robinliew.inaction.transferSSLobject.MyServer 
+
+运行Client
+
+java -Djavax.net.ssl.trustStore=mysocket.jks  -Djavax.net.ssl.trustStorePassword=mysocket com.robinliew.inaction.transferSSLobject.MyClient 
